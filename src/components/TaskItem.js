@@ -13,7 +13,7 @@ function TaskItem({text, task, tasks, setTasks}){
     <div className="task-group">
       <li className={`task-item ${task.completed ? "completed" : ""}`}>{text}</li>
       <div className="button-group">
-        <button onClick={completeHandler} >Done</button>
+        <button onClick={completeHandler} >{task.completed ? "Undo" : "Done"}</button>
         <button onClick={deleteHandler} >Delete</button>
       </div>
     </div>

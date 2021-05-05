@@ -29,8 +29,9 @@ body {
   justify-content: center;
 }
 
-form {
-  border: 2px solid red;
+header, form {
+  text-align: center;
+  /* border: 2px solid red; */
 }
 
 input, button, p {

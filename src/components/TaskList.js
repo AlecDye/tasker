@@ -5,7 +5,7 @@ function TaskList({tasks, setTasks}) {
     <div className="task-list-container">
       <ul className="task-list-ul">
         {tasks.map(task => (
-          <TaskItem tasks={tasks} setTasks={setTasks} key={task.id} text={task.text} />
+          <TaskItem task={task} tasks={tasks} setTasks={setTasks} key={task.id} text={task.text} />
         ))}
       </ul>
     </div>

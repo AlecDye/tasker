@@ -11,3 +11,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* style variables go in :root */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+h1, h2, h3 {
+  line-height: 1;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-group {
+  display: flex;
+}
+
+.button-group {
+  margin-left: 2em;
+  padding-top: 0.25em;
+  align-self: center;
+}
+
+.completed {
+  text-decoration: line-through;
+}

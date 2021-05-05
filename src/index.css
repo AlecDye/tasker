@@ -29,14 +29,21 @@ body {
   justify-content: center;
 }
 
+form {
+  border: 2px solid red;
+}
+
+input, button, p {
+  font-size: 16px;
+}
+
 .task-group {
   display: flex;
+  justify-content: space-between;
 }
 
 .button-group {
-  margin-left: 2em;
-  padding-top: 0.25em;
-  align-self: center;
+  /* align-self: center; */
 }
 
 .completed {

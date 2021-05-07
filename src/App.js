@@ -1,12 +1,36 @@
-import {useState} from "react"
+import {useState, useEffect} from "react"
 // Components
 import Form from "./components/Form"
 import TaskList from "./components/TaskList"
 
 function App() {
   const [inputText, setInputText] = useState("");
-  const [tasks, setTasks] = useState([]);
+  // initialize tasks w/ 2 demo task items
+  const [tasks, setTasks] = useState([
+    {id: new Date().getUTCMilliseconds(), text: "Conquer the world!", completed: false},
+    {id: new Date().getUTCMilliseconds() + 1, text: "Clean my socks", completed: true},
+  ]);
 
+  useEffect(() => {
+    getLocalTasks()
+  }, [])
+
+  useEffect(() => {
+    saveLocalTasks()
+  }, [tasks])
+
+  const saveLocalTasks = () => {
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+  }
+
+  const getLocalTasks = () => {
+    if(localStorage.getItem('tasks') === null) {
+      localStorage.setItem('tasks', JSON.stringify([]))
+    } else {
+      let localTasks = JSON.parse(localStorage.getItem('tasks'))
+      setTasks(localTasks)
+    }
+  }
 
   return (
     <div className="App">

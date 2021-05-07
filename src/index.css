@@ -39,12 +39,14 @@ input, button, p {
 }
 
 .task-group {
+  margin-top: 1.5em;
   display: flex;
   justify-content: space-between;
 }
 
 .button-group {
   /* align-self: center; */
+  margin-left: 1em;
 }
 
 .completed {

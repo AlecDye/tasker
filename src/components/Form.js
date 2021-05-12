@@ -14,10 +14,10 @@ function Form({inputText, setInputText, tasks, setTasks}) {
 
 
   return (
-    <form>
+    <form className="form-container">
     <div className="form-group">
       <label htmlFor="taskInput"></label>
-      <input id="taskInput" type="text" placeholder="Type Something..." value={inputText} onChange={inputTextHandler}/>
+      <input id="taskInput" type="text" placeholder="Add a new task..." value={inputText} onChange={inputTextHandler}/>
       <button type="submit" onClick={submitTaskHandler} >Add</button>
     </div>
   </form>

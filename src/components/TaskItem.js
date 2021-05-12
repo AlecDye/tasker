@@ -11,9 +11,8 @@ function TaskItem({text, task, tasks, setTasks}){
 
   return(
     <div className="task-group">
-      <li className={`task-item ${task.completed ? "completed" : ""}`}>{text}</li>
+      <li className={`task-item ${task.completed ? "completed" : ""}`} onClick={completeHandler}><p>{text}</p></li>
       <div className="button-group">
-        <button onClick={completeHandler} >{task.completed ? "Undo" : "Done"}</button>
         <button onClick={deleteHandler} >Delete</button>
       </div>
     </div>

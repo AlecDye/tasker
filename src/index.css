@@ -19,7 +19,9 @@ code {
 }
 
 h1, h2, h3 {
+  margin: 0;
   line-height: 1;
+  text-align: center;
 }
 
 body {
@@ -34,14 +36,82 @@ header, form {
   /* border: 2px solid red; */
 }
 
-input, button, p {
+input, button {
+  padding: 0.5em;
+}
+
+button {
+  cursor: pointer;
+}
+
+input, button {
   font-size: 16px;
 }
 
+p {
+  font-size: 1.2rem;
+}
+
+.container {
+  border: 2px solid steelblue;
+  border-radius: 1em;
+  padding: 2em;
+}
+
+.form-container {
+  border: 2px solid steelblue;
+  border-radius: 1em;
+  padding: 2em;
+  margin-top: 2em;
+}
+
+.task-list-container {
+  margin-top: 2em;
+  border: 2px solid steelblue;
+  border-radius: 1em;
+  padding: 2em;
+}
+
+.task-list-container h2 {
+  padding-bottom: 1em;
+  border-bottom: 1px solid black;
+}
+
+.task-list-ul.empty {
+  padding: 0;
+}
+
 .task-group {
-  margin-top: 1.5em;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.task-group + .task-group {
+  margin-top: 1.25em;
+}
+
+.task-item {
+  cursor: pointer;
+  padding: 0.5em 0;
+}
+
+.task-item > p {
+  margin: 0;
+  padding-left: 0.5em;
+}
+
+.task-item.completed > p {
+  text-decoration: line-through;
+}
+
+.task-item::marker {
+  content: "⏳";
+}
+
+.task-item.completed::marker {
+  content: "✔";
+  color: green;
 }
 
 .button-group {
@@ -49,6 +119,6 @@ input, button, p {
   margin-left: 1em;
 }
 
-.completed {
-  text-decoration: line-through;
+.button-group button {
+  padding: 0.25em;
 }

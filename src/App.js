@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react"
 // Components
+import Header from "./components/Header"
 import Form from "./components/Form"
 import TaskList from "./components/TaskList"
 
@@ -33,11 +34,8 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header>
-      <h1>Off-Task</h1>
-      <p>Get it done!</p>
-      </header>
+    <div className="container">
+      <Header />
 
       <Form inputText={inputText} setInputText={setInputText} tasks={tasks} setTasks={setTasks} />
 

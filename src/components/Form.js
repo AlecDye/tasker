@@ -1,4 +1,5 @@
 function Form({inputText, setInputText, tasks, setTasks}) {
+
   const inputTextHandler = (e) => {
     setInputText(e.target.value)
   }
@@ -12,13 +13,18 @@ function Form({inputText, setInputText, tasks, setTasks}) {
     console.log("Submitted!")
   }
 
+  const cancelHandler = (e) => {
+    e.preventDefault()
+    setInputText("");
+  }
 
   return (
     <form className="form-container">
     <div className="form-group">
-      <label htmlFor="taskInput"></label>
-      <input id="taskInput" type="text" placeholder="Add a new task..." value={inputText} onChange={inputTextHandler}/>
+      <label htmlFor="taskInput">Add a Task</label>
+      <input id="taskInput" type="text" placeholder="Buy groceries..." value={inputText} onChange={inputTextHandler}/>
       <button type="submit" onClick={submitTaskHandler} >Add</button>
+      <button type="submit" onClick={cancelHandler} >Cancel</button>
     </div>
   </form>
   )

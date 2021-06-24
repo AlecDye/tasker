@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { inputPlaceholder } from "../../helpers/inputHelpers"
 
 const AddTask = props => {
   const {onAddTask} = props
@@ -23,7 +24,7 @@ const AddTask = props => {
         name="text"
         value={enteredTask}
         onChange={taskChangeHandler}
-        placeholder="Clean dishes..."
+        placeholder={inputPlaceholder()}
         autoComplete="off"
       />
       <button type="submit">Add</button>

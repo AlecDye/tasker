@@ -13,11 +13,24 @@ function App() {
     })
   }
 
+  // toggleCompleteHandler?
+  const completeTaskHandler = id => {
+    const updatedTasks = taskList.map(task => {
+      if (id === task.id) {
+        return {...task, completed: !task.completed}
+      }
+      return task
+    })
+    setTaskList(updatedTasks)
+  }
+
+  // deleteTaskHandler
+
   return (
     <div className="container">
       <Header />
       <AddTask onAddTask={addTaskHandler} />
-      <TaskList tasks={taskList}/>
+      <TaskList tasks={taskList} onCompleteTask={completeTaskHandler}/>
     </div>
   );
 }

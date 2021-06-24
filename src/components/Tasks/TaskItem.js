@@ -1,9 +1,11 @@
 const TaskItem = props => {
-  const {text, completed} = props
+  const {task, onCompleteTask} = props
+  const {id, text, completed} = task
+
 
   return (
     <li>
-      <p className={completed && "completed"}>{text}</p>
+      <p className={completed ? "completed" : ""} onClick={() => onCompleteTask(id)}>{text}</p>
     </li>
   )
 }

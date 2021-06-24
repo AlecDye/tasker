@@ -13,7 +13,6 @@ function App() {
     })
   }
 
-  // toggleCompleteHandler?
   const completeTaskHandler = id => {
     const updatedTasks = taskList.map(task => {
       if (id === task.id) {
@@ -24,13 +23,26 @@ function App() {
     setTaskList(updatedTasks)
   }
 
-  // deleteTaskHandler
+  const deleteTaskHandler = id => {
+    console.log("I'm gonna get deleted!")
+    const filteredTasks = taskList.filter(task => id !== task.id)
+    setTaskList(filteredTasks)
+  }
 
   return (
     <div className="container">
       <Header />
-      <AddTask onAddTask={addTaskHandler} />
-      <TaskList tasks={taskList} onCompleteTask={completeTaskHandler}/>
+      <AddTask 
+        onAddTask={addTaskHandler}
+      />
+      {taskList.length === 0 && "No current tasks!"}
+      {taskList && 
+        <TaskList 
+          tasks={taskList} 
+          onCompleteTask={completeTaskHandler} 
+          onDeleteTask={deleteTaskHandler}
+        />
+      }
     </div>
   );
 }

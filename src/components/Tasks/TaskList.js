@@ -1,18 +1,17 @@
 import TaskItem from "./TaskItem"
 
 const TaskList = props => {
-  const {tasks, onCompleteTask} = props
+  const {tasks, onCompleteTask, onDeleteTask} = props
 
   return (
     <div>
-      <ul
-        role="list"
-      >
+      <ul>
         {tasks.map(task => (
           <TaskItem
             key={task.id}
             task={task}
             onCompleteTask={onCompleteTask}
+            onDeleteTask={onDeleteTask}
           />
         ))}
       </ul>

@@ -24,7 +24,6 @@ function App() {
   }
 
   const deleteTaskHandler = id => {
-    console.log("I'm gonna get deleted!")
     const filteredTasks = taskList.filter(task => id !== task.id)
     setTaskList(filteredTasks)
   }

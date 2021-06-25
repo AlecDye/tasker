@@ -13,7 +13,11 @@ const AddTask = props => {
     e.preventDefault()
     onAddTask(enteredTask)
     setEnteredTask("")
-  } 
+  }
+
+  const cancelInputHandler = () => {
+    setEnteredTask("")
+  }
 
   return (
     <form onSubmit={addTaskHandler}>
@@ -28,7 +32,7 @@ const AddTask = props => {
         autoComplete="off"
       />
       <button type="submit">Add</button>
-      {enteredTask !== "" && <button type="button">Cancel</button>}
+      {enteredTask !== "" && <button type="button" onClick={cancelInputHandler}>Cancel</button>}
     </form>
   )
 }

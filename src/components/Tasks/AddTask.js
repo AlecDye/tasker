@@ -11,6 +11,9 @@ const AddTask = props => {
 
   const addTaskHandler = e => {
     e.preventDefault()
+    if(enteredTask.trim().length === 0) {
+      return
+    }
     onAddTask(enteredTask)
     setEnteredTask("")
   }
@@ -21,7 +24,13 @@ const AddTask = props => {
 
   return (
     <form onSubmit={addTaskHandler}>
-      <label htmlFor="add-task">Add a task</label>
+      <label 
+        htmlFor="add-task"
+        className="form-label"
+      >
+        Add a task
+      </label>
+      <div className="input-group">
       <input
         id="add-task"
         type="text"
@@ -30,9 +39,16 @@ const AddTask = props => {
         onChange={taskChangeHandler}
         placeholder={inputPlaceholder()}
         autoComplete="off"
+        className="form-control me-2"
       />
-      <button type="submit">Add</button>
-      {enteredTask !== "" && <button type="button" onClick={cancelInputHandler}>Cancel</button>}
+      <button 
+        type="submit"
+        className="btn btn-primary me-1"
+      >
+        Add
+      </button>
+      {enteredTask !== "" && <button className="btn btn-secondary" type="button" onClick={cancelInputHandler}>Cancel</button>}
+      </div>
     </form>
   )
 }

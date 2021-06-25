@@ -1,122 +1,20 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 /* style variables go in :root */
 
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-h1, h2, h3 {
-  margin: 0;
-  line-height: 1;
-  text-align: center;
-}
-
 body {
-  height: 100vh;
+  min-height: 80vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-}
-
-header, form {
-  text-align: center;
-  /* border: 2px solid red; */
-}
-
-input, button {
-  padding: 0.5em;
-}
-
-button {
-  cursor: pointer;
-}
-
-input, button {
-  font-size: 16px;
-}
-
-p {
-  font-size: 1.2rem;
-}
-
-.container {
-  max-width: 1100px;
-  border: 2px solid steelblue;
-  border-radius: 1em;
-  padding: 1em;
-}
-
-.form-container {
-  border: 2px solid steelblue;
-  border-radius: 1em;
-  padding: 2em;
-  margin-top: 2em;
-}
-
-label {
-  display: block;
-  text-align: left;
-  margin-bottom: 0.25em;
-}
-
-.task-list-container {
-  margin-top: 2em;
-  border: 2px solid steelblue;
-  border-radius: 1em;
-  padding: 2em;
-}
-
-.task-list-container h2 {
-  padding-bottom: 1em;
-  border-bottom: 1px solid black;
-}
-
-.task-list-ul.empty {
-  padding: 0;
-}
-
-.task-group {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-}
-
-.task-group + .task-group {
-  margin-top: 1.25em;
-}
-
-.task-item {
-  cursor: pointer;
-  padding: 0.5em 0;
-}
-
-.task-item > p {
-  margin: 0;
-  padding-left: 0.5em;
 }
 
 p.completed {
   text-decoration: line-through;
 }
 
-.button-group {
-  /* align-self: center; */
-  margin-left: 1em;
-}
-
-.button-group button {
-  padding: 0.25em;
+li p {
+  cursor: pointer;
 }

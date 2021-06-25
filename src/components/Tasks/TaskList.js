@@ -4,8 +4,7 @@ const TaskList = props => {
   const {tasks, onCompleteTask, onDeleteTask} = props
 
   return (
-    <div>
-      <ul>
+      <ul className={"list-group shadow-sm"}>
         {tasks.map(task => (
           <TaskItem
             key={task.id}
@@ -15,7 +14,6 @@ const TaskList = props => {
           />
         ))}
       </ul>
-    </div>
   )
 }
 

@@ -1,46 +1,47 @@
-import {useState, useEffect} from "react"
+import {useState} from "react"
 // Components
 import Header from "./components/Header"
-import Form from "./components/Form"
-import TaskList from "./components/TaskList"
+import AddTask from "./components/Tasks/AddTask"
+import TaskList from "./components/Tasks/TaskList"
 
 function App() {
-  const [inputText, setInputText] = useState("");
-  // initialize tasks w/ 2 demo task items
-  const [tasks, setTasks] = useState([
-    {id: new Date().getUTCMilliseconds(), text: "Conquer the world!", completed: false},
-    {id: new Date().getUTCMilliseconds() + 1, text: "Clean my socks", completed: true},
-  ]);
+  const [taskList, setTaskList] = useState([{id: 1, text: "hello", completed: true}])
 
-  useEffect(() => {
-    getLocalTasks()
-  }, [])
-
-  useEffect(() => {
-    saveLocalTasks()
-  }, [tasks])
-
-  const saveLocalTasks = () => {
-    localStorage.setItem('tasks', JSON.stringify(tasks))
+  const addTaskHandler = task => {
+    setTaskList(prevTaskList => {
+      return [...prevTaskList, {id: Math.random().toString(), text: task, completed: false}]
+    })
   }
 
-  const getLocalTasks = () => {
-    if(localStorage.getItem('tasks') === null) {
-      localStorage.setItem('tasks', JSON.stringify([]))
-    } else {
-      let localTasks = JSON.parse(localStorage.getItem('tasks'))
-      setTasks(localTasks)
-    }
+  const completeTaskHandler = id => {
+    const updatedTasks = taskList.map(task => {
+      if (id === task.id) {
+        return {...task, completed: !task.completed}
+      }
+      return task
+    })
+    setTaskList(updatedTasks)
+  }
+
+  const deleteTaskHandler = id => {
+    const filteredTasks = taskList.filter(task => id !== task.id)
+    setTaskList(filteredTasks)
   }
 
   return (
     <div className="container">
       <Header />
-
-      <Form inputText={inputText} setInputText={setInputText} tasks={tasks} setTasks={setTasks} />
-
-      <TaskList tasks={tasks} setTasks={setTasks} />
-
+      <AddTask 
+        onAddTask={addTaskHandler}
+      />
+      {taskList.length === 0 && "No current tasks!"}
+      {taskList && 
+        <TaskList 
+          tasks={taskList} 
+          onCompleteTask={completeTaskHandler} 
+          onDeleteTask={deleteTaskHandler}
+        />
+      }
     </div>
   );
 }

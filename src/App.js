@@ -30,15 +30,15 @@ function App() {
 
   return (
     <div className="container">
-      <div className="card p-3 p-lg-5 shadow mb-5">
+      <section className="card">
         <Header />
         <AddTask 
           onAddTask={addTaskHandler}
         />
-      </div>
+      </section>
 
-      <div className="card p-sm-5 shadow">  
-        {taskList.length === 0 && <p className="lead">"No current tasks!"</p>}
+      <section className="card">  
+        {taskList.length === 0 && <p>No current tasks!</p>}
         {taskList && 
           <TaskList 
             tasks={taskList} 
@@ -46,7 +46,7 @@ function App() {
             onDeleteTask={deleteTaskHandler}
           />
         }
-      </div>
+      </section>
     </div>
   );
 }

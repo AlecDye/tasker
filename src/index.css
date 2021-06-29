@@ -1,17 +1,133 @@
-/* style variables go in :root */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+  --clr-primary: #17a2b8;
+  --clr-white: #fff;
+  --clr-light: #f8f9fa;
+  --clr-dark: #343a40;
+
+  --fw-normal: 400;
+  --fw-bold: 600;
+
+
+}
 
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
+body, h1, h2, h3, p {
+  margin: 0;
+}
+
+ul[role="list"] {
+  list-style: none;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
 body {
-  min-height: 80vh;
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 20px;
 }
 
-p.completed {
+label {
+  display: block;
+}
+
+input, button {
+  font: inherit
+}
+
+/* input[type="text"] {
+  width: 100%;
+} */
+section + section {
+  margin-top: 1em;
+}
+
+/* Utility Styles */
+.container {
+  padding: 0 2rem;
+  max-width: 65rem;
+  margin: 0 auto;
+}
+
+.flow-content > * + * {
+  margin-top: 1em;
+}
+
+.card {
+  background-color: var(--clr-white);
+  padding: 3em 2em;
+  border: 1px solid var(--clr-light);
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4)
+}
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+
+}
+
+/* Component Styles */
+
+header {
+  text-align: center;
+  padding: 1em 0;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+header p {
+  margin-top: 1em;
+}
+
+
+/* AddTask */
+.add-task {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-task label, .add-task input {
+  margin-bottom: 0.5em;
+}
+
+/* TaskList */
+.task-list {
+  padding: 0;
+}
+
+/* TaskItem */
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body {
+  background-color: var(--clr-light);
+  font-family: 'Poppins', sans-serif;
+  color: var(--clr-dark);
+}
+
+input[type=checkbox], .task-item span {
+  cursor: pointer;
+}
+
+span.completed {
   text-decoration: line-through;
 }
 

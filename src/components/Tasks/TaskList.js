@@ -4,7 +4,7 @@ const TaskList = props => {
   const {tasks, onCompleteTask, onDeleteTask} = props
 
   return (
-      <ul className={"list-group shadow-sm"}>
+      <ul className="task-list flow-content">
         {tasks.map(task => (
           <TaskItem
             key={task.id}

@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { inputPlaceholder } from "../../helpers/inputHelpers"
 
 const AddTask = props => {
   const {onAddTask} = props
@@ -18,37 +17,19 @@ const AddTask = props => {
     setEnteredTask("")
   }
 
-  const cancelInputHandler = () => {
-    setEnteredTask("")
-  }
-
   return (
-    <form onSubmit={addTaskHandler}>
-      <label 
-        htmlFor="add-task"
-        className="form-label"
-      >
-        Add a task
-      </label>
-      <div className="input-group">
+    <form onSubmit={addTaskHandler} className="add-task">
+      <label htmlFor="add-task">Add a task</label>
       <input
         id="add-task"
         type="text"
         name="text"
         value={enteredTask}
         onChange={taskChangeHandler}
-        placeholder={inputPlaceholder()}
+        placeholder="Wash the dishes..."
         autoComplete="off"
-        className="form-control me-2"
       />
-      <button 
-        type="submit"
-        className="btn btn-primary me-1"
-      >
-        Add
-      </button>
-      {enteredTask !== "" && <button className="btn btn-secondary" type="button" onClick={cancelInputHandler}>Cancel</button>}
-      </div>
+      <button className="btn" type="submit">Add</button>
     </form>
   )
 }

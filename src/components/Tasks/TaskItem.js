@@ -31,10 +31,12 @@ const TaskItem = props => {
   const {onCompleteTask, onDeleteTask} = props
   const {id, text, completed} = props.task
 
+  console.log(completed)
+
   return (
     <li className="task-item">
       <input type="checkbox" value={completed} onChange={() => onCompleteTask(id)}/>
-      <span onClick={() => onCompleteTask(id)} className={completed && "completed"}>{text}</span>
+      <span className={completed ? "completed" : ""}>{text}</span>
       <button className="btn" type="button" onClick={() => onDeleteTask(id)}>Delete</button>
     </li>
   )
